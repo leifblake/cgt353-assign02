@@ -1,0 +1,137 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Job Application Form</title>
+    <link rel="stylesheet" href="css/styles2.css" type="text/css" />
+	<link rel="stylesheet" href="https://use.typekit.net/zkk3une.css">
+    <script type="text/javascript">
+    function updateProgress() {
+        var pb = document.getElementById("pb");
+        var cnt = 0;
+
+        if( document.getElementById("firstName").value != "" )
+            cnt++;
+        if( document.getElementById("lastName").value != "" )
+            cnt++;
+        if( document.getElementById("email").value != "" )
+            cnt++;
+        if( document.getElementById("homePhone").value != "" || document.getElementById("mobilePhone").value != "" )
+            cnt++;
+        if( document.getElementById("resume").value != "" )
+            cnt++;
+        if( document.getElementById("dob").value != "" )
+            cnt++;
+        
+        var locationFlag = false;
+        if(document.getElementById("losangeles").checked)
+            locationFlag = true; 
+        else if(document.getElementById("houston").checked)
+            locationFlag = true;
+        else if(document.getElementById("nyc").checked)
+            locationFlag = true;
+        else if(document.getElementById("chicago").checked)
+            locationFlag = true;
+        
+        if (locationFlag == true)
+            cnt++;
+
+        if( document.getElementById("challenge").value != "" )
+            cnt++;
+        if( document.getElementById("additionalInfo").value != "" )
+            cnt++;
+
+        pb.value = cnt;
+    }
+
+    function checkPhone() {
+        if (document.getElementById("homePhone").value == "" && document.getElementById("mobilePhone").value == "") {
+            alert("Please fill in at least one phone number (home or mobile).");
+            return false;
+        }
+        return true;
+    }
+    </script>
+</head>
+
+<body>
+    <h1>JOB APPLICATION FORM</h1>
+    <div id="progress-container" style="margin-left:190px;"><span id="progress">PROGRESS:</span><progress value="0" max="9" id="pb"></progress><br/>&nbsp;</div>
+    <form name="jobApplication" id="jobApplication" action="processApplication.php" method="post" onsubmit="return checkPhone();">
+        <fieldset>
+            <legend>PERSONAL INFORMATION</legend>
+            <ol>
+                <li>
+                    <label for="firstName">First Name *</label>
+                    <input id="firstName" name="firstName" type="text" placeholder="Enter your first name" required="required" onChange="updateProgress();" />
+                </li>
+                <li>
+                    <label for="lastName">Last Name *</label>
+                    <input id="lastName" name="lastName" type="text" placeholder="Enter your last name" required="required" onChange="updateProgress();" />
+                </li>
+                <li>
+                    <label for="email">Email *</label>
+                    <input id="email" name="email" type="email" placeholder="example@domain.com" required="required" onChange="updateProgress();" />
+                </li>
+                <li>
+                    <label for="homePhone">Home Phone</label>
+                    <input id="homePhone" name="homePhone" type="tel" placeholder="Example: 765-555-1234" onChange="updateProgress();" />
+                </li>
+                <li>
+                    <label for="mobilePhone">Mobile Phone</label>
+                    <input id="mobilePhone" name="mobilePhone" type="tel" placeholder="Example: 765-555-1234" onChange="updateProgress();" />
+                </li>
+                <li>
+                    <label for="resume">Upload Resume (PDF only) *</label>
+                    <input id="resume" name="resume" type="file" accept=".pdf" required="required" onChange="updateProgress();" />
+                </li>
+                <li>
+                    <label for="dob">Date of Birth *</label>
+                    <input id="dob" name="dob" type="date" required="required" onChange="updateProgress();" />
+                </li>
+            </ol>
+        </fieldset>
+
+        <fieldset>
+            <legend>DESIRED EMPLOYMENT LOCATION *</legend>
+            <ol>
+                <li>
+                    <input id="losangeles" name="location" type="radio" onChange="updateProgress();" />
+                    <label for="losangeles">Los Angeles, CA</label>
+                </li>
+                <li>
+                    <input id="houston" name="location" type="radio" onChange="updateProgress();" />
+                    <label for="houston">Houston, TX</label>
+                </li>
+                <li>
+                    <input id="nyc" name="location" type="radio" onChange="updateProgress();" />
+                    <label for="nyc">New York City, NY</label>
+                </li>
+                <li>
+                    <input id="chicago" name="location" type="radio" onChange="updateProgress();" />
+                    <label for="chicago">Chicago, IL</label>
+                </li>
+            </ol>
+        </fieldset>
+
+        <fieldset>
+            <legend>ADDITIONAL QUESTIONS</legend>
+            <ol>
+                <li>
+                    <label for="challenge">Tell us about a situation where you overcame a challenge. What was that like? *</label>
+                    <textarea id="challenge" name="challenge" rows="5" required="required" onChange="updateProgress();"></textarea>
+                </li>
+                <li>
+                    <label for="additionalInfo">Is there anything else we should know about you? *</label>
+                    <textarea id="additionalInfo" name="additionalInfo" rows="5" required="required" onChange="updateProgress();"></textarea>
+                </li>
+            </ol>
+        </fieldset>
+        
+        <fieldset>
+            <button type="submit">SUBMIT APPLICATION</button>
+            <button type="submit" onclick="window.location.href='index.html';">BACK TO PART 1</button>
+        </fieldset>
+    </form>
+</body>
+</html>

@@ -1,0 +1,168 @@
+@charset "UTF-8";
+/* CSS Document */
+@font-face {
+    font-family: 'Tungsten-Bold';
+    src: url('css/Tungsten-Bold.otf') format('opentype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'DIN Next Medium';
+    src: url('css/dinnextw1g_medium.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+h1, legend, button[type="submit"] {
+    font-family: 'Tungsten-Bold', sans-serif;
+    font-weight: bold;
+    color: white;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: white; 
+}
+
+body {
+    font-family: 'DIN Next Medium', sans-serif; 
+    font-weight: normal;
+    background-color: #1A1A1A;
+    color: white; 
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    font-size: 5.0rem;
+    margin-bottom: 20px;
+}
+
+form {
+    width: 60%;
+    margin: 0 auto;
+    background-color: #b02b17; 
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+fieldset {
+    border: none;
+    margin-bottom: 15px;
+}
+
+legend {
+    font-size: 2.7rem;
+    color: white;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+label, ul label, ol label {
+    font-size: 1rem;
+    color: white; 
+    font-family: 'DIN Next Medium', sans-serif; 
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: #f4f4f4; 
+    color: black; 
+}
+
+input[type="radio"] {
+    width: auto;
+    margin-right: 8px;
+}
+
+button[type="submit"] {
+    width: 100%;
+    background-color: #8c2e2e; 
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 2.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+	margin-top: 10px;
+}
+
+button[type="submit"]:hover {
+    background-color: #6e2525; 
+}
+
+textarea {
+    resize: vertical;
+}
+
+#progress {
+    font-size: 1.1rem;
+    margin-right: 10px;
+    color: white;
+}
+
+progress {
+    width: 50%;
+    height: 20px;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-left: 10px;
+}
+
+progress::-webkit-progress-bar {
+    background-color: #f3f3f3;
+}
+
+progress::-webkit-progress-value {
+    background-color: #a83232; 
+    transition: width 0.4s ease, background-color 0.4s ease;
+}
+
+ol {
+    list-style: none;
+}
+
+li {
+    margin-bottom: 15px;
+}
+
+@media (max-width: 768px) {
+    form {
+        width: 90%;
+    }
+    
+    button[type="submit"] {
+        font-size: 1rem;
+    }
+}
+
+#progress-container {
+    text-align: center;
+    margin-bottom: 20px;
+    transform: translateX(-100px); 
+}
+
+progress {
+    width: 40%; 
+    height: 20px;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 10px;
+    background-color: #ccc; 
+}
+
+progress::-webkit-progress-value {
+    background-color: #a83232; 
+    transition: width 0.4s ease, background-color 0.4s ease; 
+}
